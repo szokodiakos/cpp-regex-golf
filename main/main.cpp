@@ -1,13 +1,19 @@
 #include <iostream>
 #include <string>
-#include "Game.h"
+#include "game/Game.h"
 
 int main(int argc, char **argv) {
+    std::cout << "  ____                         ____       _  __ " << std::endl;
+    std::cout << " |  _ \\ ___  __ _  _____  __  / ___| ___ | |/ _|" << std::endl;
+    std::cout << " | |_) / _ \\/ _` |/ _ \\ \\/ / | |  _ / _ \\| | |_ " << std::endl;
+    std::cout << " |  _ <  __/ (_| |  __/>  <  | |_| | (_) | |  _|" << std::endl;
+    std::cout << " |_| \\_\\___|\\__, |\\___/_/\\_\\  \\____|\\___/|_|_|  " << std::endl;
+    std::cout << "            |___/                               " << std::endl;
     Game game;
-    std::string guess;
+    std::string input;
     game.print();
-    while (getline(std::cin, guess)) {
-        game.guess(guess);
+    while (getline(std::cin, input)) {
+        game.input(input);
         game.print();
     }
     return 0;

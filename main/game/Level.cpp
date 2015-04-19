@@ -14,3 +14,11 @@ void Level::print() {
 std::vector<std::string> Level::getLevelNames() {
     return FileHandler::getFileNames(LEVELS_DIR);
 }
+
+int Level::getLevelCount() {
+    return Level::getLevelNames().size();
+}
+
+std::shared_ptr<Level> load(std::string path) {
+    FileHandler::getFile(path);
+}
