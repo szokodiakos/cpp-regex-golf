@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "game/Game.h"
+#include "Game.h"
 
 int main(int argc, char **argv) {
     std::cout << "  ____                         ____       _  __ " << std::endl;
@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
     std::cout << " | |_) / _ \\/ _` |/ _ \\ \\/ / | |  _ / _ \\| | |_ " << std::endl;
     std::cout << " |  _ <  __/ (_| |  __/>  <  | |_| | (_) | |  _|" << std::endl;
     std::cout << " |_| \\_\\___|\\__, |\\___/_/\\_\\  \\____|\\___/|_|_|  " << std::endl;
-    std::cout << "            |___/                               " << std::endl;
+    std::cout << "            |___/              powered by C++11 " << std::endl;
     Game game;
     std::string input;
     game.print();

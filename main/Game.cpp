@@ -19,8 +19,9 @@ void Game::input(std::string input) {
         if (Util::isNumber(input)) {
             int levelId = std::stoi(input);
             if (levelId <= Level::getLevelCount()) {
-                info = " *** Loading level '" + Level::getLevelNames()[levelId - 1] + "' ... ***";
-
+                std::string name = Level::getLevelNames()[levelId - 1];
+                info = " *** Loading level '" + name + "'... ***";
+                this->currentLevel = Level::load(name);
             } else {
                 info = " *** Error: Invalid level id, try again. ***";
             }

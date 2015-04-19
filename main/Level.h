@@ -4,11 +4,11 @@
 #include <vector>
 #include <string>
 #include <memory>
-#include "../io/FileHandler.h"
+#include "FileHandler.h"
 
 class Level {
-    constexpr static auto LEVELS_DIR = "../levels";
 public:
+    constexpr static auto LEVELS_DIR = "../levels";
     Level();
     ~Level();
     void print();

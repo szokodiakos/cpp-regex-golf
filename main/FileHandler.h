@@ -9,6 +9,7 @@ public:
     FileHandler();
     ~FileHandler();
     static std::vector<std::string> getFileNames(std::string);
+    static std::string getFileContent(std::string);
 };
 
 #endif // FILEHANDLER_H

@@ -1,0 +1,14 @@
+{
+    "level": {
+        "shouldMatch": [
+            "foo",
+            "bar",
+            "baz"
+        ],
+        "shouldNotMatch": [
+            "onetwo",
+            "threefour",
+            "fivesix"
+        ]
+    }
+}

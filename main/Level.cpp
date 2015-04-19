@@ -1,4 +1,5 @@
 #include <iostream>
+#include "FileHandler.h"
 #include "Level.h"
 
 Level::Level() {
@@ -19,6 +20,6 @@ int Level::getLevelCount() {
     return Level::getLevelNames().size();
 }
 
-std::shared_ptr<Level> load(std::string path) {
-    FileHandler::getFile(path);
+std::shared_ptr<Level> Level::load(std::string path) {
+    std::string content = FileHandler::getFileContent(path);
 }
