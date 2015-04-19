@@ -20,7 +20,6 @@ void Game::input(std::string input) {
             int levelId = std::stoi(input);
             if (levelId <= Level::getLevelCount()) {
                 std::string name = Level::getLevelNames()[levelId - 1];
-                info = " *** Loading level '" + name + "'... ***";
                 this->currentLevel = Level::load(name);
             } else {
                 info = " *** Error: Invalid level id, try again. ***";
@@ -38,6 +37,7 @@ void Game::print() {
     std::cout << "-----" << std::endl;
     if (this->isLevelLoaded()) {
         this->currentLevel->print();
+        std::cout << "Enter guess: ";
     } else {
         std::cout << "Select level:" << std::endl;
         for (unsigned int i = 0; i < this->levels->size(); ++i) {

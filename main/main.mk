@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=akos
-Date                   :=04/19/15
+Date                   :=04/20/15
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=C:/TDM-GCC-64/bin/g++.exe 
 SharedObjectLinkerName :=C:/TDM-GCC-64/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/FileHandler.cpp$(ObjectSuffix) $(IntermediateDirectory)/JsonParser.cpp$(ObjectSuffix) $(IntermediateDirectory)/DirRaii.cpp$(ObjectSuffix) $(IntermediateDirectory)/FileRaii.cpp$(ObjectSuffix) $(IntermediateDirectory)/RegexTester.cpp$(ObjectSuffix) $(IntermediateDirectory)/Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/Level.cpp$(ObjectSuffix) $(IntermediateDirectory)/Util.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/FileHandler.cpp$(ObjectSuffix) $(IntermediateDirectory)/DirRaii.cpp$(ObjectSuffix) $(IntermediateDirectory)/RegexTester.cpp$(ObjectSuffix) $(IntermediateDirectory)/Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/Level.cpp$(ObjectSuffix) $(IntermediateDirectory)/Util.cpp$(ObjectSuffix) 
 
 
 
@@ -105,14 +105,6 @@ $(IntermediateDirectory)/FileHandler.cpp$(DependSuffix): FileHandler.cpp
 $(IntermediateDirectory)/FileHandler.cpp$(PreprocessSuffix): FileHandler.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/FileHandler.cpp$(PreprocessSuffix) "FileHandler.cpp"
 
-$(IntermediateDirectory)/JsonParser.cpp$(ObjectSuffix): JsonParser.cpp $(IntermediateDirectory)/JsonParser.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Repositories/cpp-regex-golf/main/JsonParser.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/JsonParser.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/JsonParser.cpp$(DependSuffix): JsonParser.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/JsonParser.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/JsonParser.cpp$(DependSuffix) -MM "JsonParser.cpp"
-
-$(IntermediateDirectory)/JsonParser.cpp$(PreprocessSuffix): JsonParser.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/JsonParser.cpp$(PreprocessSuffix) "JsonParser.cpp"
-
 $(IntermediateDirectory)/DirRaii.cpp$(ObjectSuffix): DirRaii.cpp $(IntermediateDirectory)/DirRaii.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Repositories/cpp-regex-golf/main/DirRaii.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/DirRaii.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/DirRaii.cpp$(DependSuffix): DirRaii.cpp
@@ -120,14 +112,6 @@ $(IntermediateDirectory)/DirRaii.cpp$(DependSuffix): DirRaii.cpp
 
 $(IntermediateDirectory)/DirRaii.cpp$(PreprocessSuffix): DirRaii.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/DirRaii.cpp$(PreprocessSuffix) "DirRaii.cpp"
-
-$(IntermediateDirectory)/FileRaii.cpp$(ObjectSuffix): FileRaii.cpp $(IntermediateDirectory)/FileRaii.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Repositories/cpp-regex-golf/main/FileRaii.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/FileRaii.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/FileRaii.cpp$(DependSuffix): FileRaii.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/FileRaii.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/FileRaii.cpp$(DependSuffix) -MM "FileRaii.cpp"
-
-$(IntermediateDirectory)/FileRaii.cpp$(PreprocessSuffix): FileRaii.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/FileRaii.cpp$(PreprocessSuffix) "FileRaii.cpp"
 
 $(IntermediateDirectory)/RegexTester.cpp$(ObjectSuffix): RegexTester.cpp $(IntermediateDirectory)/RegexTester.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Repositories/cpp-regex-golf/main/RegexTester.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/RegexTester.cpp$(ObjectSuffix) $(IncludePath)
