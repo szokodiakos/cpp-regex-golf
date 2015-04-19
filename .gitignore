@@ -1,3 +1,7 @@
+# Codelite
+*.workspace
+.codelite
+
 # Compiled Object files
 *.slo
 *.lo
