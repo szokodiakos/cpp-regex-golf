@@ -52,8 +52,8 @@ LibPath                := $(LibraryPathSwitch).
 AR       := C:/TDM-GCC-64/bin/ar.exe rcu
 CXX      := C:/TDM-GCC-64/bin/g++.exe 
 CC       := C:/TDM-GCC-64/bin/gcc.exe 
-CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
-CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
+CXXFLAGS :=  -g -O0 -Wall -std=c++11 $(Preprocessors)
+CFLAGS   :=  -g -O0 -Wall -std=c++11 $(Preprocessors)
 ASFLAGS  := 
 AS       := C:/TDM-GCC-64/bin/as.exe 
 
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/Level.cpp$(ObjectSuffix) $(IntermediateDirectory)/RegexTester.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/Level.cpp$(ObjectSuffix) $(IntermediateDirectory)/RegexTester.cpp$(ObjectSuffix) $(IntermediateDirectory)/FileHandler.cpp$(ObjectSuffix) 
 
 
 
@@ -120,6 +120,14 @@ $(IntermediateDirectory)/RegexTester.cpp$(DependSuffix): RegexTester.cpp
 
 $(IntermediateDirectory)/RegexTester.cpp$(PreprocessSuffix): RegexTester.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/RegexTester.cpp$(PreprocessSuffix) "RegexTester.cpp"
+
+$(IntermediateDirectory)/FileHandler.cpp$(ObjectSuffix): FileHandler.cpp $(IntermediateDirectory)/FileHandler.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Repositories/cpp-regex-golf/main/FileHandler.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/FileHandler.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/FileHandler.cpp$(DependSuffix): FileHandler.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/FileHandler.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/FileHandler.cpp$(DependSuffix) -MM "FileHandler.cpp"
+
+$(IntermediateDirectory)/FileHandler.cpp$(PreprocessSuffix): FileHandler.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/FileHandler.cpp$(PreprocessSuffix) "FileHandler.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

@@ -2,8 +2,14 @@
 #define GAME_H
 
 #include <string>
+#include <memory>
+#include <vector>
+#include "Level.h"
 
 class Game {
+    std::shared_ptr<Level> currentLevel;
+    std::shared_ptr<std::vector<std::string>> levels;
+    int score;
 public:
     Game();
     ~Game();
