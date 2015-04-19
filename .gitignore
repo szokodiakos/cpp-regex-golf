@@ -1,5 +1,6 @@
 # Codelite
 *.workspace
+*.project
 .codelite
 
 # Compiled Object files
@@ -30,3 +31,6 @@
 *.exe
 *.out
 *.app
+
+# Debug
+*.d
