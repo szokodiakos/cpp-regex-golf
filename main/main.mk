@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-64/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Game.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/Level.cpp$(ObjectSuffix) $(IntermediateDirectory)/RegexTester.cpp$(ObjectSuffix) 
 
 
 
@@ -104,6 +104,22 @@ $(IntermediateDirectory)/Game.cpp$(DependSuffix): Game.cpp
 
 $(IntermediateDirectory)/Game.cpp$(PreprocessSuffix): Game.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Game.cpp$(PreprocessSuffix) "Game.cpp"
+
+$(IntermediateDirectory)/Level.cpp$(ObjectSuffix): Level.cpp $(IntermediateDirectory)/Level.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Repositories/cpp-regex-golf/main/Level.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Level.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Level.cpp$(DependSuffix): Level.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Level.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Level.cpp$(DependSuffix) -MM "Level.cpp"
+
+$(IntermediateDirectory)/Level.cpp$(PreprocessSuffix): Level.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Level.cpp$(PreprocessSuffix) "Level.cpp"
+
+$(IntermediateDirectory)/RegexTester.cpp$(ObjectSuffix): RegexTester.cpp $(IntermediateDirectory)/RegexTester.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Repositories/cpp-regex-golf/main/RegexTester.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/RegexTester.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/RegexTester.cpp$(DependSuffix): RegexTester.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/RegexTester.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/RegexTester.cpp$(DependSuffix) -MM "RegexTester.cpp"
+
+$(IntermediateDirectory)/RegexTester.cpp$(PreprocessSuffix): RegexTester.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/RegexTester.cpp$(PreprocessSuffix) "RegexTester.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
