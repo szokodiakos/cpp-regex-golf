@@ -6,10 +6,11 @@
 #include "FileHandler.h"
 
 class Level {
-    constexpr static auto LEVELS_DIR = "levels";
+    constexpr static auto LEVELS_DIR = "../levels";
 public:
     Level();
     ~Level();
+    void print();
     static std::vector<std::string> getLevelNames();
 };
 

@@ -10,9 +10,27 @@ Game::Game() {
 Game::~Game() {
 }
 
-void Game::guess(std::string) {
+void Game::input(std::string input) {
+    if (this->isLevelLoaded()) {
+
+    } else {
+
+    }
 }
 
 void Game::print() {
     std::cout << "RegexGolf++11" << std::endl;
+    if (this->isLevelLoaded()) {
+        this->currentLevel->print();
+    } else {
+        std::cout << "Select level:" << std::endl;
+        for (unsigned int i = 0; i < this->levels->size(); i++) {
+            std::cout << "  (" << i + 1 << ") " << (*levels)[i] << std::endl;
+        }
+        std::cout << "Level choice: ";
+    }
+}
+
+bool Game::isLevelLoaded() {
+    return (this->currentLevel != nullptr);
 }

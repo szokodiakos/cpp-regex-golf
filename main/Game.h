@@ -14,7 +14,8 @@ public:
     Game();
     ~Game();
     void print();
-    void guess(std::string);
+    void input(std::string);
+    bool isLevelLoaded();
 };
 
 #endif // GAME_H
