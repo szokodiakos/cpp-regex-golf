@@ -9,8 +9,8 @@
 
 struct JSONLevelParser {
     static void parse(std::string content,
-                      std::shared_ptr<std::vector<std::string>>& shouldMatch,
-                      std::shared_ptr<std::vector<std::string>>& shouldNotMatch) {
+                      std::vector<std::string>& shouldMatch,
+                      std::vector<std::string>& shouldNotMatch) {
         std::vector<std::string> matchVector;
         std::vector<std::string> notMatchVector;
         rapidjson::Document doc;
@@ -52,8 +52,8 @@ struct JSONLevelParser {
         }
 
         // if everything went right, pass vectors to level's fields
-        shouldMatch = std::make_shared<std::vector<std::string>>(matchVector);
-        shouldNotMatch = std::make_shared<std::vector<std::string>>(notMatchVector);
+        shouldMatch = matchVector;
+        shouldNotMatch = notMatchVector;
     }
 };
 

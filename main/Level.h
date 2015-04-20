@@ -8,8 +8,8 @@
 #include "JSONLevelParser.h"
 
 class Level {
-    std::shared_ptr<std::vector<std::string>> shouldMatch;
-    std::shared_ptr<std::vector<std::string>> shouldNotMatch;
+    std::vector<std::string> shouldMatch;
+    std::vector<std::string> shouldNotMatch;
 public:
     constexpr static auto LEVELS_DIR = "../levels";
     Level();
@@ -19,7 +19,7 @@ public:
     void print();
     static std::vector<std::string> getLevelNames();
     static int getLevelCount();
-    static std::shared_ptr<Level> load(std::string);
+    static Level load(std::string);
 };
 
 #endif // LEVEL_H

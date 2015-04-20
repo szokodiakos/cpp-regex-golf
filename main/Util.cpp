@@ -16,3 +16,7 @@ bool Util::isNumber(std::string str) {
     }
     return isNumber;
 }
+
+std::string Util::separator() {
+    return "--------\n";
+}

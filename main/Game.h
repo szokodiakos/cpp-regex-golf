@@ -8,7 +8,7 @@
 
 class Game {
     std::shared_ptr<Level> currentLevel;
-    std::shared_ptr<std::vector<std::string>> levels;
+    std::vector<std::string> levels;
     int score;
 public:
     Game();
@@ -16,6 +16,7 @@ public:
     void print();
     void input(std::string);
     bool isLevelLoaded();
+    int evaluateGuess(std::string);
 };
 
 #endif // GAME_H

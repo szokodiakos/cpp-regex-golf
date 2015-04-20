@@ -20,13 +20,13 @@ Level::~Level() {
 
 void Level::print() {
     std::cout << "Should match: " << std::endl;
-    for (unsigned int i = 0; i < this->shouldMatch->size(); ++i) {
-        std::cout << " * " << (*this->shouldMatch)[i] << std::endl;
+    for (unsigned int i = 0; i < this->shouldMatch.size(); ++i) {
+        std::cout << " * " << this->shouldMatch[i] << std::endl;
     }
 
     std::cout << "Should not match: " << std::endl;
-    for (unsigned int i = 0; i < this->shouldNotMatch->size(); ++i) {
-        std::cout << " * " << (*this->shouldNotMatch)[i] << std::endl;
+    for (unsigned int i = 0; i < this->shouldNotMatch.size(); ++i) {
+        std::cout << " * " << this->shouldNotMatch[i] << std::endl;
     }
 }
 
@@ -38,8 +38,7 @@ int Level::getLevelCount() {
     return Level::getLevelNames().size();
 }
 
-std::shared_ptr<Level> Level::load(std::string path) {
+Level Level::load(std::string path) {
     std::string content = FileHandler::getFileContent(path);
-    std::shared_ptr<Level> level = std::make_shared<Level>(Level(content));
-    return level;
+    return Level(content);
 }

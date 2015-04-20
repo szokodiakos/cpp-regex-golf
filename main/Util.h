@@ -8,6 +8,7 @@ public:
     Util();
     ~Util();
     static bool isNumber(std::string);
+    static std::string separator();
 };
 
 #endif // UTIL_H

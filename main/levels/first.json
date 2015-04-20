@@ -1,5 +1,6 @@
 {
     "level": {
+        "name": "Warm up",
         "shouldMatch": [
             "foo",
             "bar",
