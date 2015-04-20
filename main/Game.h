@@ -12,6 +12,7 @@ class Game {
     std::vector<std::string> levelNames;
     std::map<std::string, std::string> results;
     int score;
+    bool validGuess;
 public:
     Game();
     ~Game();

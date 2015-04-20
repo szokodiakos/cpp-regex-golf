@@ -9,6 +9,7 @@ Game::Game() {
     this->currentLevel = nullptr;
     this->levelNames = Level::getLevelNames();
     this->results = std::map<std::string, std::string>();
+    this->validGuess = true;
 }
 
 Game::~Game() {
@@ -17,7 +18,12 @@ Game::~Game() {
 void Game::input(std::string input) {
     std::string info;
     if (this->isLevelLoaded()) {
-        this->score = this->evaluateGuess(input);
+        this->validGuess = true;
+        try {
+            this->score = this->evaluateGuess(input);
+        } catch (...) {
+            this->validGuess = false;
+        }
     } else {
         if (Util::isNumber(input)) {
             int levelId = std::stoi(input);
@@ -40,7 +46,11 @@ void Game::print() {
     std::cout << Util::separator() << std::endl;
     if (this->isLevelLoaded()) {
         this->currentLevel->print(results);
-        std::cout << "\nScore for last guess: " << this->score << " points." << std::endl;
+        if (this->validGuess) {
+            std::cout << "\nScore for last guess: " << this->score << " points." << std::endl;
+        } else {
+            std::cout << "\n *** Error: Invalid guess, please try again. ***" << std::endl;
+        }
         std::cout << "Enter guess: ";
     } else {
         std::cout << "Select level:" << std::endl;
