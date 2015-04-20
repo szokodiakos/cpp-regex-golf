@@ -1,6 +1,4 @@
 # Codelite
-*.workspace
-*.project
 .codelite
 
 # Compiled Object files
