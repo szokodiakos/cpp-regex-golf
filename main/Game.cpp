@@ -2,11 +2,13 @@
 #include "Game.h"
 #include "Util.h"
 #include "Level.h"
+#include "RegexTester.h"
 
 Game::Game() {
     this->score = 0;
     this->currentLevel = nullptr;
-    this->levels = Level::getLevelNames();
+    this->levelNames = Level::getLevelNames();
+    this->results = std::map<std::string, std::string>();
 }
 
 Game::~Game() {
@@ -37,13 +39,13 @@ void Game::input(std::string input) {
 void Game::print() {
     std::cout << Util::separator() << std::endl;
     if (this->isLevelLoaded()) {
-        this->currentLevel->print();
-        std::cout << "\nScore so far: " << this->score << std::endl;
+        this->currentLevel->print(results);
+        std::cout << "\nScore for last guess: " << this->score << " points." << std::endl;
         std::cout << "Enter guess: ";
     } else {
         std::cout << "Select level:" << std::endl;
-        for (unsigned int i = 0; i < this->levels.size(); ++i) {
-            std::cout << "  (" << i + 1 << ") " << levels[i] << std::endl;
+        for (unsigned int i = 0; i < this->levelNames.size(); ++i) {
+            std::cout << "  (" << i + 1 << ") " << levelNames[i] << std::endl;
         }
         std::cout << "\nLevel choice: ";
     }
@@ -51,14 +53,40 @@ void Game::print() {
 
 int Game::evaluateGuess(std::string guess) {
     int score = 0;
+    this->results.clear();
 
     // -1 pts for every character
     score -= guess.length();
 
-    // +10 pts for every should word
+    // +10 pts for every 'should' word match
+    for (auto word: this->currentLevel->getShouldMatch()) {
+        auto longestMatch = RegexTester::test(word, guess);
 
-    // -10 pts for every shouldNot word
+        // add some additional info to the result
+        std::string resultInfo;
+        if (longestMatch != nullptr) {
+            resultInfo = "[ OK ] (" + *longestMatch + ")";
+            score += 10;
+        } else {
+            resultInfo = "[    ]";
+        }
+        this->results[word] = resultInfo;
+    }
 
+    // -10 pts for every 'shouldNot' word match
+    for (auto word: this->currentLevel->getShouldNotMatch()) {
+        auto longestMatch = RegexTester::test(word, guess);
+
+        // add some additional info to the result
+        std::string resultInfo;
+        if (longestMatch != nullptr) {
+            resultInfo = "[FAIL] (" + *longestMatch + ")";
+            score -= 10;
+        } else {
+            resultInfo = "[    ]";
+        }
+        this->results[word] = resultInfo;
+    }
     return score;
 }
 

@@ -18,15 +18,21 @@ Level::Level(std::string content) {
 Level::~Level() {
 }
 
-void Level::print() {
+void Level::print(std::map<std::string, std::string> results) {
     std::cout << "Should match: " << std::endl;
     for (unsigned int i = 0; i < this->shouldMatch.size(); ++i) {
-        std::cout << " * " << this->shouldMatch[i] << std::endl;
+        auto result = results[this->shouldMatch[i]];
+
+        // augment level item with guess results
+        std::cout << " * " << this->shouldMatch[i] << " " << result << std::endl;
     }
 
-    std::cout << "Should not match: " << std::endl;
+    std::cout << "\nShould not match: " << std::endl;
     for (unsigned int i = 0; i < this->shouldNotMatch.size(); ++i) {
-        std::cout << " * " << this->shouldNotMatch[i] << std::endl;
+        auto result = results[this->shouldNotMatch[i]];
+
+        // augment level item with guess results
+        std::cout << " * " << this->shouldNotMatch[i] << " " << result << std::endl;
     }
 }
 
@@ -41,4 +47,11 @@ int Level::getLevelCount() {
 Level Level::load(std::string path) {
     std::string content = FileHandler::getFileContent(path);
     return Level(content);
+}
+
+const std::vector<std::string>& Level::getShouldMatch() const {
+    return shouldMatch;
+}
+const std::vector<std::string>& Level::getShouldNotMatch() const {
+    return shouldNotMatch;
 }

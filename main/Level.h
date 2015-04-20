@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <map>
 #include "FileHandler.h"
 #include "JSONLevelParser.h"
 
@@ -16,10 +17,12 @@ public:
     template <typename LevelParser = JSONLevelParser>
     Level(std::string);
     ~Level();
-    void print();
+    void print(std::map<std::string, std::string>);
     static std::vector<std::string> getLevelNames();
     static int getLevelCount();
     static Level load(std::string);
+    const std::vector<std::string>& getShouldMatch() const;
+    const std::vector<std::string>& getShouldNotMatch() const;
 };
 
 #endif // LEVEL_H
