@@ -7,7 +7,7 @@ RegexTester::RegexTester() {
 RegexTester::~RegexTester() {
 }
 
-std::shared_ptr<std::string> RegexTester::test(std::string string, std::string regex) {
+std::shared_ptr<std::string> RegexTester::test(std::string const& string, std::string const& regex) {
     std::shared_ptr<std::string> stringPtr;
     std::smatch matchResult;
     try {

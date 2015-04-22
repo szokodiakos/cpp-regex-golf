@@ -17,9 +17,9 @@ public:
     Game();
     ~Game();
     void print();
-    void input(std::string);
+    void input(std::string const&);
     bool isLevelLoaded();
-    int evaluateGuess(std::string);
+    int evaluateGuess(std::string const&);
 };
 
 #endif // GAME_H

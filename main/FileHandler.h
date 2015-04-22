@@ -8,8 +8,8 @@ class FileHandler {
 public:
     FileHandler();
     ~FileHandler();
-    static std::vector<std::string> getFileNames(std::string);
-    static std::string getFileContent(std::string);
+    static std::vector<std::string> getFileNames(std::string const&);
+    static std::string getFileContent(std::string const&);
 };
 
 #endif // FILEHANDLER_H

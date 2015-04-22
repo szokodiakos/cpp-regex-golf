@@ -7,7 +7,7 @@ class Util {
 public:
     Util();
     ~Util();
-    static bool isNumber(std::string);
+    static bool isNumber(std::string const&);
     static std::string separator();
 };
 

@@ -15,7 +15,7 @@ Game::Game() {
 Game::~Game() {
 }
 
-void Game::input(std::string input) {
+void Game::input(std::string const& input) {
     std::string info;
     if (this->isLevelLoaded()) {
         this->validGuess = true;
@@ -61,7 +61,7 @@ void Game::print() {
     }
 }
 
-int Game::evaluateGuess(std::string guess) {
+int Game::evaluateGuess(std::string const& guess) {
     int score = 0;
     this->results.clear();
 

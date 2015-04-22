@@ -8,7 +8,7 @@
 #include "rapidjson/document.h"
 
 struct JSONLevelParser {
-    static void parse(std::string content,
+    static void parse(std::string const& content,
                       std::vector<std::string>& shouldMatch,
                       std::vector<std::string>& shouldNotMatch) {
         std::vector<std::string> matchVector;

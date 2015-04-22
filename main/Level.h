@@ -15,12 +15,12 @@ public:
     constexpr static auto LEVELS_DIR = "../levels";
     Level();
     template <typename LevelParser = JSONLevelParser>
-    Level(std::string);
+    Level(std::string const&);
     ~Level();
-    void print(std::map<std::string, std::string>);
+    void print(std::map<std::string, std::string> const&);
     static std::vector<std::string> getLevelNames();
     static int getLevelCount();
-    static Level load(std::string);
+    static Level load(std::string const&);
     const std::vector<std::string>& getShouldMatch() const;
     const std::vector<std::string>& getShouldNotMatch() const;
 };

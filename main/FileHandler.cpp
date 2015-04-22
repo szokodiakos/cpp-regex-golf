@@ -13,7 +13,7 @@ FileHandler::FileHandler() {
 FileHandler::~FileHandler() {
 }
 
-std::vector<std::string> FileHandler::getFileNames(std::string path) {
+std::vector<std::string> FileHandler::getFileNames(std::string const& path) {
     DirRaii dir(path);
     std::vector<std::string> files;
     if (dir != nullptr) {
@@ -27,7 +27,7 @@ std::vector<std::string> FileHandler::getFileNames(std::string path) {
     return files;
 }
 
-std::string FileHandler::getFileContent(std::string fileName) {
+std::string FileHandler::getFileContent(std::string const& fileName) {
     std::stringstream stringStream;
     std::ifstream fileStream;
     std::string filePath = std::string(Level::LEVELS_DIR) + "/" + fileName;
