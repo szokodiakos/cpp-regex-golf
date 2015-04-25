@@ -25,7 +25,6 @@
       <File Name="FileHandler.h"/>
       <File Name="DirRaii.h"/>
       <File Name="DirRaii.cpp"/>
-      <File Name="JSONLevelParser.h"/>
     </VirtualDirectory>
     <VirtualDirectory Name="regex">
       <File Name="RegexTester.h"/>
@@ -42,6 +41,10 @@
       <File Name="Util.h"/>
     </VirtualDirectory>
     <File Name="main.cpp"/>
+    <VirtualDirectory Name="parser">
+      <File Name="JSONLevelParser.cpp"/>
+      <File Name="JSONLevelParser.h"/>
+    </VirtualDirectory>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>
   <Dependencies Name="Release"/>
