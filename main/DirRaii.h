@@ -11,32 +11,32 @@
  */
 class DirRaii {
 
-	/**
-	 * @brief Pointer to the guarded C structure.
-	 */
-	DIR* dir;
+    /**
+     * @brief Pointer to the guarded C structure.
+     */
+    DIR* dir;
 
 public:
 
-	/**
-	 * @brief Constructor using a directory path.
-	 * @param path Path to the directory.
-	 */
-	DirRaii(std::string path);
+    /**
+     * @brief Constructor using a directory path.
+     * @param path Path to the directory.
+     */
+    DirRaii(std::string path);
 
-	/**
-	 * @brief Destructor
-	 */
-	~DirRaii();
+    /**
+     * @brief Destructor
+     */
+    ~DirRaii();
 
-	/**
-	 * @brief Converting operator to C DIR structure pointer.
-	 */
-	operator DIR* () const;
+    /**
+     * @brief Converting operator to C DIR structure pointer.
+     */
+    operator DIR* () const;
 
-	DirRaii(DirRaii const &) = delete;
-	DirRaii& operator=(DirRaii) = delete;
-	DirRaii(DirRaii &&) = delete;
+    DirRaii(DirRaii const &) = delete;
+    DirRaii(DirRaii &&) = delete;
+    DirRaii& operator=(DirRaii) = delete;
 };
 
 #endif // DIRRAII_H
